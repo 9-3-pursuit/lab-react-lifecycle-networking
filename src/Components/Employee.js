@@ -12,7 +12,7 @@ export const Employee = ({ employee, isExpanded, handleClick }) => {
       </h3>
       <h4>{title}</h4>
       <button onClick={handleClick}>Show Pets</button>
-      {isExpanded && <PetList />}
+      {isExpanded && <PetList pets={employee.pets} />}
     </article>
   );
 };
