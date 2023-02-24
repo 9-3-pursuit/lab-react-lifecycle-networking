@@ -1,7 +1,7 @@
 import PetList from "./PetList";
 import "../styles/Employee.css";
 
-export const Employee = () => {
+export const Employee = ({ employee }) => {
   return (
     <article className="employee">
       <h3>Staff Member Name</h3>
