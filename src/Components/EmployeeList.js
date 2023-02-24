@@ -18,7 +18,9 @@ export const EmployeeList = () => {
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-        <Employee employees={employees} />
+        {employees.map((employee) => {
+          return <Employee key={employee.id} employee={employee} />;
+        })}
       </section>
     </main>
   );
