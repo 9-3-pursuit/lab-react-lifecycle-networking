@@ -1,5 +1,5 @@
 import PetList from "./PetList";
-import "./Employee.css";
+import "../styles/Employee.css";
 
 export const Employee = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Employee from "./Employee";
-import "./EmployeeList.css";
+import "../styles/EmployeeList.css";
 
 export const EmployeeList = () => {
   return (
