@@ -23,7 +23,7 @@ export const Employee = () => {
   return (
     employeeData.map(employee => {
       return(
-        <article className="employee">
+        <article key={employee.id} className="employee">
           <h3>{employee.prefix} {employee.firstName} {employee.lastName}{employee.postfix && `, ${employee.postfix}`}</h3>
           <h4>{employee.title}</h4>
           <button>Show Pets</button>
