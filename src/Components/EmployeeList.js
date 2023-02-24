@@ -4,7 +4,7 @@ import "./EmployeeList.css";
 
 export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
-
+  const [expandedIndex, setExpandedIndex] = useState(null);
   useEffect(() => {
     let ignore = false;
 
@@ -15,12 +15,24 @@ export const EmployeeList = () => {
     return () => (ignore = true);
   }, []);
 
+  const handleClick = (index) => () => {
+    const getNewIndex = () => (expandedIndex === index ? null : index);
+    setExpandedIndex(getNewIndex());
+  };
+
   return (
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-        {employees.map((employee) => {
-          return <Employee employee={employee} />;
+        {employees.map((employee, index) => {
+          return (
+            <Employee
+              key={employee.id}
+              employee={employee}
+              isExpanded={expandedIndex === index}
+              handleClick={handleClick(index)}
+            />
+          );
         })}
       </section>
     </main>
