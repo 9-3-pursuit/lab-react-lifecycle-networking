@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
@@ -19,7 +19,9 @@ export const EmployeeList = () => {
     <main>
       <h2>All Staff</h2>
       <section className="employee-list">
-        <Employee />
+        {employees.map((employee) => {
+          return <Employee employee={employee} />;
+        })}
       </section>
     </main>
   );
