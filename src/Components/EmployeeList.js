@@ -7,11 +7,9 @@ export const EmployeeList = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   useEffect(() => {
     let ignore = false;
-
     if (!ignore) {
-      fetchEmployeeData(setEmployees).catch(console.error);
+      addEmployeeData(setEmployees).catch(console.error);
     }
-
     return () => (ignore = true);
   }, []);
 
@@ -39,13 +37,22 @@ export const EmployeeList = () => {
   );
 };
 
-async function fetchEmployeeData(setEmployees) {
-  const FETCH_URL = "https://vet-app-0obi.onrender.com";
-  const EMPLOYEE_ENDPOINT = "/api/employees";
-  const employeeDataRaw = await fetch(FETCH_URL + EMPLOYEE_ENDPOINT);
+async function addEmployeeData(setEmployees) {
+  const employeeData = await fetchData("employees");
+  const petData = await fetchData("pets");
+  const employeeDataWithPets = employeeData.map((employee) => {
+    const matchedPets = petData.filter((pet) => pet.employeeId === employee.id);
+    return { ...employee, pets: matchedPets };
+  });
+  setEmployees(employeeDataWithPets);
+}
+
+async function fetchData(endpoint) {
+  const BASE_URL = "https://vet-app-0obi.onrender.com/api/";
+  const employeeDataRaw = await fetch(BASE_URL + endpoint);
   const employeeData = await employeeDataRaw.json();
 
-  setEmployees(employeeData);
+  return employeeData;
 }
 
 export default EmployeeList;
