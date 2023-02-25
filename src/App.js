@@ -1,14 +1,14 @@
 import React from "react";
-import NavBar from "./Components/NavBar";
-import EmployeeList from "./Components/EmployeeList";
+import NavBar from "./components/NavBar";
+import EmployeeList from "./components/EmployeeList";
 
-function App () {
+function App() {
   return (
     <>
       <NavBar />
       <EmployeeList />
     </>
   );
-};
+}
 
 export default App;
