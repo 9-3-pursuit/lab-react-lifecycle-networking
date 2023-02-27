@@ -1,12 +1,25 @@
 import PetList from "./PetList";
 import "./Employee.css";
 
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 
 
-export const Employee = ({firstName, lastName, prefix, postfix, title}) => {
-  const [showPets, setShowPets]= useState(false)
+export const Employee = ({firstName, lastName, prefix, postfix, title, id}) => {
+  const [showPets, setShowPets]= useState(false);
+  // const [pets, setPets] = useState([]);
+  // console.log(id)
+  // useEffect(() => {
+    
+  //   const url = `https://vet-app-0obi.onrender.com/api/pets`;
+  //   fetch(url)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //           console.log(data)
+  //           setPets(data);
+  //       });
+  // }, [])
+
   return (
     <article className="employee">
       {/* <h3>formatEmployee</h3> */}
@@ -15,7 +28,7 @@ export const Employee = ({firstName, lastName, prefix, postfix, title}) => {
       <button onClick={() => {setShowPets(!showPets)}}>
         {showPets ? "Hide Pets": "Show Pets"}
         </button>
-     {showPets && <PetList />}
+     {showPets && <PetList id={id}/>}
     </article>
   );
 };

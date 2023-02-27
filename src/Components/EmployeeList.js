@@ -12,12 +12,12 @@ export const EmployeeList = () => {
       fetch(url)
           .then((res) => res.json())
           .then((data) => {
-              
+              console.log(data)
               setEmployees(data);
           });
     }, [])
    
- 
+    console.log(employees)
 
   return (
     <main>
