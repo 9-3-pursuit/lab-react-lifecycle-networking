@@ -2,7 +2,6 @@
 import Employee from "./Employee";
 import "./EmployeeList.css";
 
-
 export const EmployeeList = ({employees, pets}) => {
 
   return (
@@ -10,7 +9,7 @@ export const EmployeeList = ({employees, pets}) => {
       <h2>All Staff</h2>
         <section className="employee-list">
           {employees.map((employee) => {return (
-            <Employee employee={employee}/>
+            <Employee key = {employee.id} employee={employee}/>
           )})}
         </section>
     </main>
