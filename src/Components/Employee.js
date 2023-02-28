@@ -1,13 +1,18 @@
 import PetList from "./PetList";
 import "./Employee.css";
 
-export const Employee = () => {
+export const Employee = ({ employee, isExpanded, handleClick }) => {
+  const { firstName, lastName, prefix, postfix, title } = employee;
+
   return (
     <article className="employee">
-      <h3>Staff Member Name</h3>
-      <h4>Staff Member Title</h4>
-      <button>Show Pets</button>
-      <PetList />
+      <h3>
+        {`${prefix} ${firstName} ${lastName}`}
+        {postfix && `${", " + postfix}`}
+      </h3>
+      <h4>{title}</h4>
+      <button onClick={handleClick}>Show Pets</button>
+      {isExpanded && <PetList pets={employee.pets} />}
     </article>
   );
 };
