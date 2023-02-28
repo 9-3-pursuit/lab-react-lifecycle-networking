@@ -1,4 +1,7 @@
 
 export const formatEmployee = (firstName, lastName, prefix, postfix) => {
-    return;
+    let name = `${firstName} ${lastName}`;
+  if (prefix) name = `${prefix} ${name}`;
+  if (postfix) name = `${name}, ${postfix}`;
+  return (name)
 }
