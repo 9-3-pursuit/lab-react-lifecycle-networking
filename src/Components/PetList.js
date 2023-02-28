@@ -1,9 +1,10 @@
 export const PetList = ({ pets, employeeId }) => {
-  console.log(pets[0]);
-  const petNames = pets
-    .filter((pet) => pet.employeeId === employeeId)
-    .map((pet) => pet.name);
-
+  let petNames = []
+  if (pets.length) {
+     petNames = pets
+      .filter((pet) => pet.employeeId === employeeId)
+      .map((pet) => pet.name);
+  }
   return (
     <aside className="pets-list">
       {petNames.length > 0 ? (
