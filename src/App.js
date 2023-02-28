@@ -3,7 +3,7 @@ import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 import { useState, useEffect } from "react";
 
-const API_BASE = "https://vet-app-0obi.onrender.com/api/";
+const API_BASE = "https://vet-app-0obi.onrender.com/api";
 
 function App() {
   const [employees, setEmployees] = useState([]);

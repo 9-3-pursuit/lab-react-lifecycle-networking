@@ -1,11 +1,7 @@
 
 import PetList from "./PetList";
-
 import { useState, useEffect } from "react";
-
 import "./Employee.css";
-
-const API_BASE = "https://vet-app-0obi.onrender.com/api/";
 
 const Employee = ({ employee }) => {
   const [petList, setPetList] = useState({ boolean: false });
@@ -13,7 +9,7 @@ const Employee = ({ employee }) => {
 
   useEffect(() => {
     function getPetsInfo() {
-      const url = `${API_BASE}/pets`;
+      const url = "https://vet-app-0obi.onrender.com/api/pets"
       fetch(url)
         .then((results) => results.json())
         .then((data) => {
@@ -29,7 +25,7 @@ const Employee = ({ employee }) => {
   }
 
   function displayPet(employeeId) {
-    return <PetList pets={pets} employeeId={employeeId} />;
+    return (<PetList pets={pets} employeeId={employeeId} />);
   }
 
   return (
@@ -39,7 +35,7 @@ const Employee = ({ employee }) => {
         {employee.postfix && `, ${employee.postfix}`}
       </h3>
       <h4>{employee.title}</h4>
-      <button onClick={() => togglePet()}>Show Pets</button>
+      <button onClick={() => togglePet()}>{petList ? 'Show Pets' : 'Hide Pets'}</button>
       {!petList ? displayPet(employee.id) : null}
     </article>
   );
