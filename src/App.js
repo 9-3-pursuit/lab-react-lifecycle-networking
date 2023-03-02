@@ -1,12 +1,13 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./Components/NavBar";
 import EmployeeList from "./Components/EmployeeList";
 
-function App () {
+function App() {
   return (
     <>
       <NavBar />
-      <EmployeeList />
+      <EmployeeList useState={useState} useEffect={useEffect} />
     </>
   );
 };
