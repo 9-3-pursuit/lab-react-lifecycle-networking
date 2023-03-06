@@ -15,7 +15,7 @@ export const EmployeeList = ({ useState, useEffect }) => {
   useEffect(() => {
     // fetching data from URL
     fetch("https://vet-app-0obi.onrender.com/api/employees")
-      // converting response from server into JSON object
+      // converting response from server into parsed JSON 
       .then((res) => res.json())
       // updating component state to equal parsed JSON data
       .then((apiData) => {
