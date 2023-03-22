@@ -7,9 +7,11 @@ export const PetList = ({id, name, kind, breed, employeeId}) => {
   console.log(setAllPets);
 
   useEffect(() => {
-    fetch("https://vet-app-0obi.onrender.com/api/pets").then((res) => res.json()).then((apiData) => {setAllPets(apiData);
+    fetch(`https://vet-app-0obi.onrender.com/api/pets?employeeId=${id}`)
+    .then((res) => res.json())
+    .then((apiData) => {setAllPets(apiData);
     })
-  }, [])
+  }, [id])
 
   return (
     <aside className="pets-list">

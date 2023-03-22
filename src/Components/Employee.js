@@ -4,17 +4,18 @@ import { formatEmployee } from "./utils/format";
 import { useState } from "react";
 
 
-export const Employee = ({firstName, lastName, prefix, postfix, title }) => {
+export const Employee = ({ firstName, lastName, prefix, postfix, id, title }) => {
   const [showPets, setShowPets] = useState(false);
+  
 
   return (
     <article className="employee">
       <h3>{formatEmployee(firstName,lastName, prefix, postfix, title)}</h3>
       <h4>{title}</h4>
-      <button  onClick={() => {setShowPets((oldShowPets) => !oldShowPets);
+      <button  onClick={() => {setShowPets(!showPets)
       }}> {showPets ? "Hide Pets" : "Show Pets"}
       </button>
-      {showPets && <PetList />}
+      {showPets && <PetList id={id}/>}
     </article> 
   );
 };
