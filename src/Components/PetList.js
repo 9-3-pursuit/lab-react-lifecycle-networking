@@ -1,7 +1,9 @@
-export const PetList = () => {
+import React from "react";
+
+export const PetList = ({ petNames }) => {
   return (
     <aside className="pets-list">
-      <p>No pets listed for this employee.</p>
+      <p>{petNames}</p>
     </aside>
   );
 };
